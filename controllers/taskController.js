@@ -43,7 +43,7 @@ const updateTask = async(req, res) => {
             return res.status(404).json({ message: 'Task not found' });
         }
 
-        // Ensure user owns the task
+
         if (task.userId !== req.user.id) {
             return res.status(401).json({ message: 'Not authorized' });
         }
@@ -66,13 +66,13 @@ const deleteTask = async(req, res) => {
             return res.status(404).json({ message: 'Task not found' });
         }
 
-        // Ensure user owns the task
+
         if (task.userId !== req.user.id) {
             return res.status(401).json({ message: 'Not authorized' });
         }
 
         await task.destroy();
-        res.status(204).end(); // 204: No Content
+        res.status(204).end();
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });

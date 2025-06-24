@@ -9,6 +9,6 @@ router.route('/')
 
 router.route('/:id')
     .put(protect, taskController.updateTask)
-    .delete(protect, taskController.deleteTask); // <-- DELETE route added
+    .delete(protect, taskController.deleteTask);
 
 module.exports = router;
